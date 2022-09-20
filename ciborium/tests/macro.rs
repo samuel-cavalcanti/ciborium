@@ -36,6 +36,7 @@ macro_rules! arr {
     case(Value::Bool(false), cbor!(false).unwrap()),
     case(Value::Text("foo".into()), cbor!("foo").unwrap()),
     case(Value::Bytes(vec![0, 1, 2]), cbor!(Bytes::new(b"\x00\x01\x02")).unwrap()),
+    case(Value::Array(vec![cbor!(49).unwrap(), cbor!(50).unwrap(), cbor!(51).unwrap()]), cbor!(b"123".to_vec()).unwrap()),
 
     // Numeric simple types
     case(Value::Integer(Integer::from(123)), cbor!(123).unwrap()),
